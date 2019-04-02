@@ -1,26 +1,18 @@
+module.experts = Phrase;
 
-
+// Adds `reverse` to all strings.
 String.prototype.reverse = function(){
   return Array.from(this).reverse().join("");
 }
-Array.prototype.last = function(){
-  // return this[this.length -1];
-  return this.slice(-1)[0];
-}
-String.prototype.isEmpty = function(){
-  // return this.match(/^\s+$/);
-  if(this.match(/^\s*$/)){
-    return true;
-  }else{
-    return false;
-  }
-}
+
+// Define a Phrase object.
 function Phrase(content){
   this.content = content;
-
+  // Retruns cotent processed for palindrome testing.
   this.processedContent = function (){
     return this.content.toLowerCase();
   }
+  // Retruns ture if the phrase is a palindrome, false otherwise.
   this.palindrome = function (){
     return this.processedContent() === this.processedContent().reverse();
   }
